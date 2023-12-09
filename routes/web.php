@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\EmployeeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,5 +16,9 @@ use App\Http\Controllers\HomeController;
 */
 
 Route::get('/', [HomeController::class,'index']);
+
+
+// EmployeeController
+route::resource('employees', EmployeeController::class);
 
 
