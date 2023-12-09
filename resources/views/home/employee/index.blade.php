@@ -65,9 +65,20 @@
                             <td class="center">
                               <div class="row">
                                     <!--Status-->
+                                    
+
                                     <div class="span2">
-                                      <a href="#" class="btn btn-primary"><i class="halflings-icon white eye-open"></i></a>
-                                    </div>
+                                      @if($employee->status==1)
+                                      <a href="{{url('/employee-status'.$employee->id)}}" class="btn btn-success">
+                                        <i class="halflings-icon white thumbs-down"></i>  
+                                      </a>
+
+                                    @else
+                                      <a href="{{url('/employee-status'.$employee->id)}}" class="btn btn-danger" >
+                                        <i class="halflings-icon white thumbs-up"></i>  
+                                      </a>
+                                      @endif
+                                  </div>
 
                                     <!--Edit-->
                                     <div class="span2">

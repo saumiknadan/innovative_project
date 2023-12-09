@@ -20,5 +20,6 @@ Route::get('/', [HomeController::class,'index']);
 
 // EmployeeController
 route::resource('employees', EmployeeController::class);
+Route::get('employee-status{employee}', [EmployeeController::class, 'change_status']);
 
 

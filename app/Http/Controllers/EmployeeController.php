@@ -84,6 +84,21 @@ class EmployeeController extends Controller
         //
     }
 
+    public function change_status(Employee $employee)
+    {
+        //
+        if($employee->status==1)
+        {
+            $employee->update(['status'=>0]);
+        }
+        else
+        {
+            $employee->update(['status'=>1]);
+        }
+
+        return redirect()->back()->with('message','Employee status updated successfully');
+    }
+
     /**
      * Remove the specified resource from storage.
      */
