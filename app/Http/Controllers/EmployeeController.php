@@ -71,18 +71,45 @@ class EmployeeController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Employee $employee)
     {
-        //
+        return view('home.employee.edit', compact('employee'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Employee $employee)
     {
-        //
+        
+        $request->validate([
+            'first_name' => 'required|string|max:255',
+            'last_name' => 'required|string|max:255',
+            'email' => 'required|email|unique:employees,email,' . $employee->id,
+            'phone' => 'nullable|string|max:20',
+            'address' => 'nullable|string|max:255',
+            'salary' => 'required|numeric',
+            'dob' => 'required|date',
+            
+        ]);
+
+        $employee->first_name = $request->first_name;
+        $employee->last_name = $request->last_name;
+        $employee->email = $request->email;
+        $employee->phone = $request->phone;
+        $employee->address = $request->address;
+        $employee->salary = $request->salary;
+        $employee->dob = $request->dob;
+
+      
+        if ($request->hasFile('image')) {
+            $employee->image = $request->file('image')->store('employee');
+        }
+
+        $employee->save();
+        return redirect()->back()->with('message', 'Employee updated successfully');
     }
+
 
     public function change_status(Employee $employee)
     {

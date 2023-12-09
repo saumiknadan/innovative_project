@@ -82,7 +82,7 @@
 
                                     <!--Edit-->
                                     <div class="span2">
-                                      <a href="#" class="btn btn-danger"><i class="halflings-icon white eye-open"></i></a>
+                                      <a href="{{url('/employees/'.$employee->id.'/edit/')}}" class="btn btn-danger"><i class="halflings-icon white edit"></i></a>
                                     </div>
                                       
                                     <!--Show-->
