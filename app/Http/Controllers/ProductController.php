@@ -29,6 +29,13 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'product_name' => 'required|string|max:255',
+            'description' => 'required|string',
+            'price' => 'required|numeric',
+            'thumbnail_image' => 'image|mimes:jpeg,png,jpg,gif|max:2048', 
+        ]);
+        
         $product = new Product;
         $product->id = $request->product;
         $product->product_name = $request->product_name;
@@ -54,9 +61,9 @@ class ProductController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Product $product)
     {
-        //
+        return view('home.product.edit', compact('product'));
     }
 
     /**
