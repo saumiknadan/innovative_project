@@ -56,7 +56,7 @@ class EmployeeController extends Controller
         }
 
         $employee->save();
-        return redirect()->back()->with('message', 'Product added successfully');
+        return redirect()->back()->with('message', 'Employee created successfully');
     }
 
     /**

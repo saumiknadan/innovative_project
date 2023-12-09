@@ -21,7 +21,11 @@
                 <div class="card">
                   <div class="card-body">
                     <h4 class="card-title">Basic form elements</h4>
-                    <p class="card-description"> Basic form elements </p>
+                    <p class="text-success"> 
+                      @if(session('message'))
+                       {{ session('message') }}
+                  @endif  
+                    </p>
                     <form class="forms-sample" action="{{url('/employees/')}}" method="post" enctype="multipart/form-data">
                       
                         @csrf
