@@ -23,7 +23,8 @@
               <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
-                    <h4 class="card-title">Inverse table</h4>
+                    <h4 class="card-title">Products Summary</h4>
+                    <a href="{{url('/products/create')}}"><button type="button" class="btn btn-success btn-fw">+ Add Product</button></a>
                     <p class="text-success"> 
                         @if(session('message'))
                          {{ session('message') }}

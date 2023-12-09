@@ -31,7 +31,7 @@
                       <fieldset>
                         <div class="form-group">
                           <label for="exampleInputName1">Product Name</label>
-                          <input type="text" class="form-control" id="exampleInputName1" disabled name="product_name" value="{{ $product->product_name }}" >
+                          <input type="text" class="form-control" id="exampleInputName1" name="product_name" value="{{ $product->product_name }}" >
                         </div>
 
                         <div class="form-group">

@@ -17,7 +17,7 @@
         <div class="main-panel">
           <div class="content-wrapper">
             <div class="row">
-
+                <h1>All three modules are done and linked in the sidebar.</h1>
             </div>
           </div>
         </div>

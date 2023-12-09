@@ -90,20 +90,13 @@ class ProductController extends Controller
         $product->description = $request->description;
         $product->price = $request->price;
 
-        
         if ($request->hasFile('thumbnail_image')) {
-            // Delete the existing thumbnail image if it exists
-            if ($product->thumbnail_image) {
-                Storage::delete($product->thumbnail_image);
-            }
-
-            
             $product->thumbnail_image = $request->file('thumbnail_image')->store('prod_thumbnail');
         }
 
         
         $product->save();
-
+        
         return redirect('/products')->with('message', 'Product updated successfully');
     }
 

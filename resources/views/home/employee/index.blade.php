@@ -23,8 +23,13 @@
               <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
-                    <h4 class="card-title">Inverse table</h4>
-                    
+                    <h4 class="card-title">Employee Summary</h4>
+                    <a href="{{url('/employees/create')}}"><button type="button" class="btn btn-success btn-fw">+ Create Employee</button></a>
+                    <p class="text-success"> 
+                      @if(session('message'))
+                       {{ session('message') }}
+                  @endif  
+                    </p>
                     <div class="table-responsive">
                       <table class="table table-dark">
                         <thead>

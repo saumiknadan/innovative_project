@@ -56,7 +56,7 @@ class EmployeeController extends Controller
         }
 
         $employee->save();
-        return redirect()->back()->with('message', 'Employee created successfully');
+        return redirect('/employees')->with('message', 'Employee created successfully');
     }
 
     /**
@@ -107,7 +107,7 @@ class EmployeeController extends Controller
         }
 
         $employee->save();
-        return redirect()->back()->with('message', 'Employee updated successfully');
+        return redirect('/employees')->with('message', 'Employee updated successfully');
     }
 
 
