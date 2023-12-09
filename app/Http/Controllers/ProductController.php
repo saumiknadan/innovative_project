@@ -69,9 +69,36 @@ class ProductController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Product $product)
     {
-        //
+        
+        $request->validate([
+            'product_name' => 'required|string|max:255',
+            'description' => 'required|string',
+            'price' => 'required|numeric',
+            'thumbnail_image' => 'image|mimes:jpeg,png,jpg,gif|max:2048', 
+        ]);
+
+       
+        $product->product_name = $request->product_name;
+        $product->description = $request->description;
+        $product->price = $request->price;
+
+        
+        if ($request->hasFile('thumbnail_image')) {
+            // Delete the existing thumbnail image if it exists
+            if ($product->thumbnail_image) {
+                Storage::delete($product->thumbnail_image);
+            }
+
+            
+            $product->thumbnail_image = $request->file('thumbnail_image')->store('prod_thumbnail');
+        }
+
+        
+        $product->save();
+
+        return redirect()->back()->with('message', 'Product updated successfully');
     }
 
     public function change_status(Product $product)
