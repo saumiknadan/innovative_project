@@ -24,7 +24,11 @@
                 <div class="card">
                   <div class="card-body">
                     <h4 class="card-title">Inverse table</h4>
-                    
+                    <p class="text-success"> 
+                        @if(session('message'))
+                         {{ session('message') }}
+                    @endif  
+                      </p>
                     <div class="table-responsive">
                       <table class="table table-dark">
                         <thead>

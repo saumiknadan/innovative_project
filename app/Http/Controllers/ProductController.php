@@ -29,11 +29,20 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
+        // $request->validate([
+        //     'product_name' => 'required|string|max:255',
+        //     'description' => 'required|string',
+        //     'price' => 'required|numeric',
+        //     'thumbnail_image' => 'image|mimes:jpeg,png,jpg,gif|max:2048', 
+        // ]);
+
         $request->validate([
-            'product_name' => 'required|string|max:255',
+            'product_name' => 'required|string|max:255|unique:products',
             'description' => 'required|string',
             'price' => 'required|numeric',
-            'thumbnail_image' => 'image|mimes:jpeg,png,jpg,gif|max:2048', 
+            'thumbnail_image' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
+        ], [
+            'product_name.unique' => 'Product name already exists. Please choose a different name.',
         ]);
         
         $product = new Product;
@@ -47,8 +56,10 @@ class ProductController extends Controller
         }
 
         $product->save();
-        return redirect()->back()->with('message', 'Product added successfully');
+        return redirect('/products')->with('message', 'Product added successfully');
     }
+
+  
 
     /**
      * Display the specified resource.
@@ -98,7 +109,7 @@ class ProductController extends Controller
         
         $product->save();
 
-        return redirect()->back()->with('message', 'Product updated successfully');
+        return redirect('/products')->with('message', 'Product updated successfully');
     }
 
     public function change_status(Product $product)

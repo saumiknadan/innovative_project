@@ -24,11 +24,6 @@
                 <div class="card">
                   <div class="card-body">
                     <h4 class="card-title">Update Products</h4>
-                    <p class="text-success"> 
-                      @if(session('message'))
-                       {{ session('message') }}
-                  @endif  
-                    </p>
                     <form class="forms-sample" action="{{url('/products/'.$product->id)}}" method="post" enctype="multipart/form-data">
                       
                         @csrf
@@ -36,7 +31,7 @@
                       <fieldset>
                         <div class="form-group">
                           <label for="exampleInputName1">Product Name</label>
-                          <input type="text" class="form-control" id="exampleInputName1" name="product_name" value="{{ $product->product_name }}" >
+                          <input type="text" class="form-control" id="exampleInputName1" disabled name="product_name" value="{{ $product->product_name }}" >
                         </div>
 
                         <div class="form-group">

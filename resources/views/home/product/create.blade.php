@@ -25,9 +25,15 @@
                   <div class="card-body">
                     <h4 class="card-title">Create Products</h4>
                     <p class="text-success"> 
-                      @if(session('message'))
-                       {{ session('message') }}
-                  @endif  
+                       @if ($errors->any())
+                          <div class="alert alert-danger">
+                              <ul>
+                                  @foreach ($errors->all() as $error)
+                                      <li>{{ $error }}</li>
+                                  @endforeach
+                              </ul>
+                          </div>
+                      @endif
                     </p>
                     <form class="forms-sample" action="{{url('/products/')}}" method="post" enctype="multipart/form-data">
                       
