@@ -29,13 +29,7 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        // $request->validate([
-        //     'product_name' => 'required|string|max:255',
-        //     'description' => 'required|string',
-        //     'price' => 'required|numeric',
-        //     'thumbnail_image' => 'image|mimes:jpeg,png,jpg,gif|max:2048', 
-        // ]);
-
+        
         $request->validate([
             'product_name' => 'required|string|max:255|unique:products',
             'description' => 'required|string',
@@ -64,9 +58,10 @@ class ProductController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show($id)
     {
-        //
+        $product=product::find($id);
+        return view('home.product.show', compact('product'));
     }
 
     /**
