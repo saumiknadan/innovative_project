@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
   <!-- head -->
-  @include('home.head')
+  <head>
+    @include('home.head')
+    
+  </head>
   <body>
     <div class="container-scroller">
       <!-- partial:partials/_sidebar.html -->

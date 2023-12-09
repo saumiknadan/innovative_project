@@ -30,31 +30,29 @@
                         <thead>
                           <tr>
                             <th style="width=5%">ID</th>
-                            <th style="width=10%"> Name </th>
-                            <th style="width=10%"> Salary </th>
-                            <th style="width=10%"> Email </th>
-                            <th style="width=10%"> Address </th>
-                            <th style="width=10%"> Image </th>
+                            <th style="width=10%"> Product Name </th>
+                            <th style="width=10%"> Description </th>
+                            <th style="width=10%"> Price </th>
+                            <th style="width=10%"> Thumbnails </th>
                             <th style="width=10%"> Status </th>
                             <th style="width=35%"> Action </th>
                           </tr>
                         </thead>
-                        @foreach($employees as $employee)
+                        @foreach($products as $product)
                         <tbody>
                           <tr>
-                            <td> {{ $employee->id }} </td>
-                            <td> {{ $employee->first_name }} {{ $employee->last_name }} </td>
-                            <td> {{ $employee->salary }} </td>
-                            <td> {{ $employee->email }} </td>
-                            <td> {{ $employee->address }} </td>
-
+                            <td> {{ $product->id }} </td>
+                            <td> {{ $product->product_name }}</td>
+                            <td> {{ $product->description }} </td>
+                            <td> {{ $product->price }} </td>
+                            
                             <td class="py-1">
-                              <img src="{{asset('/storage/'.$employee->image)}}" alt="image" />
+                              <img src="{{asset('/storage/'.$product->thumbnail_image)}}" alt="image" />
                             </td>
 
                            <!-- Active/Deactive -->
                            <td class="center">
-                            @if($employee->status==1)
+                            @if($product->status==1)
                               <span class="label label-success">On work</span>
                             @else
                               <span class="label label-danger">Retired</span>
@@ -67,13 +65,13 @@
                                     
 
                                     <div class="span2">
-                                      @if($employee->status==1)
-                                      <a href="{{url('/employee-status'.$employee->id)}}" class="btn btn-success">
+                                      @if($product->status==1)
+                                      <a href="{{url('/product-status'.$product->id)}}" class="btn btn-success">
                                         <i class="mdi mdi-thumb-down"></i>  
                                       </a>
 
                                     @else
-                                      <a href="{{url('/employee-status'.$employee->id)}}" class="btn btn-danger" >
+                                      <a href="{{url('/product-status'.$product->id)}}" class="btn btn-danger" >
                                         <i class="mdi mdi-thumb-up"></i>  
                                       </a>
                                       @endif
@@ -81,16 +79,16 @@
 
                                     <!--Edit-->
                                     <div class="span2">
-                                      <a href="{{url('/employees/'.$employee->id.'/edit/')}}" class="btn btn-warning"><i class="mdi mdi-pencil"></i></a>
+                                      <a href="{{url('/products/'.$product->id.'/edit/')}}" class="btn btn-warning"><i class="mdi mdi-pencil"></i></a>
                                     </div>
                                       
                                     <!--Show-->
                                     <div class="span2">
-                                      <a href="{{ url('/employees/'.$employee->id) }}" class="btn btn-info"><i class="mdi mdi-eye"></i></a>
+                                      <a href="{{ url('/products/'.$product->id) }}" class="btn btn-info"><i class="mdi mdi-eye"></i></a>
                                     </div>
   
                                      <!--Delete-->
-                                  <form action="{{ url('/employees/'.$employee->id) }}" method="post">
+                                  <form action="{{ url('/products/'.$product->id) }}" method="post">
                                       @csrf
                                       @method('DELETE')
                                       <button type="submit" class="btn btn-danger">

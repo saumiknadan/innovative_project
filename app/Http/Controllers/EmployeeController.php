@@ -37,7 +37,7 @@ class EmployeeController extends Controller
             'address' => 'nullable|string|max:255',
             'salary' => 'required|numeric',
             'dob' => 'required|date',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'image' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
                 

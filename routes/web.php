@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,4 +23,7 @@ Route::get('/', [HomeController::class,'index']);
 route::resource('employees', EmployeeController::class);
 Route::get('employee-status{employee}', [EmployeeController::class, 'change_status']);
 
+// ProductController
+Route::resource('products', ProductController::class);
+Route::get('employee-status{employee}', [EmployeeController::class, 'change_status']);
 

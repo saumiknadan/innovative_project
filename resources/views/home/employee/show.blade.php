@@ -23,26 +23,26 @@
               <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
-                    <h4 class="card-title">Show er kaj hobe</h4>
-                    <p class="card-description"> Add class <code>.table-dark</code>
+                    <h4 class="card-title">{{$employee->first_name}} {{$employee->last_name}}</h4>
+                    <img src="{{ asset('/storage/'.$employee->image) }}" alt="image" class="rounded-circle" style="width: 150px; height: 150px;">
+
+
+                    <p class="card-text">
+
+                      <strong>Email:</strong> {{ $employee->email }} <br>
+                      <strong>Phone:</strong> {{ $employee->phone }} <br>
+                      <strong>Address:</strong> {{ $employee->address }} <br>
+                      <strong>Salary:</strong>BDT: {{ $employee->salary }} <br>
+                      <strong>Date of Birth:</strong> {{ $employee->dob }} <br>
+                      <strong>Employment Status:</strong> 
+                          @if($employee->status==1)
+                          <span class="label label-success">On work</span>
+                        @else
+                          <span class="label label-danger">Resigned</span>
+                          @endif <br>
+                    
                     </p>
-                    <div class="table-responsive">
-                      <table class="table table-dark">
-                        <thead>
-                          <tr>
-                            <th style="width=5%">ID</th>
-                            <th style="width=10%"> Name </th>
-                            <th style="width=10%"> Salary </th>
-                            <th style="width=10%"> Email </th>
-                            <th style="width=10%"> Address </th>
-                            <th style="width=10%"> Image </th>
-                            <th style="width=10%"> Status </th>
-                            <th style="width=35%"> Action </th>
-                          </tr>
-                        </thead>
-                        
-                      </table>
-                    </div>
+                   
                   </div>
                 </div>
               </div>
