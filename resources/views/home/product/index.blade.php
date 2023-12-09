@@ -53,9 +53,9 @@
                            <!-- Active/Deactive -->
                            <td class="center">
                             @if($product->status==1)
-                              <span class="label label-success">On work</span>
+                              <span class="label text-success">Active</span>
                             @else
-                              <span class="label label-danger">Retired</span>
+                              <span class="label text-danger">Deactive</span>
                               @endif
                             </td>
 

@@ -25,5 +25,5 @@ Route::get('employee-status{employee}', [EmployeeController::class, 'change_stat
 
 // ProductController
 Route::resource('products', ProductController::class);
-Route::get('employee-status{employee}', [EmployeeController::class, 'change_status']);
+Route::get('product-status{product}', [ProductController::class, 'change_status']);
 

@@ -67,6 +67,21 @@ class ProductController extends Controller
         //
     }
 
+    public function change_status(Product $product)
+    {
+        //
+        if($product->status==1)
+        {
+            $product->update(['status'=>0]);
+        }
+        else
+        {
+            $product->update(['status'=>1]);
+        }
+
+        return redirect()->back()->with('message','Product status updated successfully');
+    }
+
     /**
      * Remove the specified resource from storage.
      */
